@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Form Input Data Warisan Budaya</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="kotak">
+  <h2>Form Input Data Warisan Budaya</h2>
+  <form action="input.php" onsubmit="return validateForm(event)" method="post">
+    <label for="kategori">Kategori:</label>
+    <input type="text" id="kategori" name="kategori">
+    <label for="keterangan">Keterangan:</label>
+    <input type="text" id="keterangan" name="keterangan">
+    <label for="nama_pemilik">Nama Pemilik (boleh kosong):</label>
+    <input type="text" id="nama_pemilik" name="nama_pemilik">
+    <label for="kecamatan">Kecamatan:</label>
+    <input type="text" id="kecamatan" name="kecamatan">
+    <label for="desa">Desa:</label>
+    <input type="text" id="desa" name="desa">
+    <label for="dusun">Dusun:</label>
+    <input type="text" id="dusun" name="dusun">
+    <label for="dokumentasi">Dokumentasi (link atau nama file, boleh kosong):</label>
+    <input type="text" id="dokumentasi" name="dokumentasi">
+    <label for="point_x">Point X:</label>
+    <input type="text" id="point_x" name="point_x">
+    <label for="point_y">Point Y:</label>
+    <input type="text" id="point_y" name="point_y">
+    <label for="longitude">Longitude:</label>
+    <input type="text" id="longitude" name="longitude">
+    <label for="latitude">Latitude:</label>
+    <input type="text" id="latitude" name="latitude">
+    <input type="submit" value="Submit">
+  </form>
+  <p id="informasi"></p>
+  <a class="kembali" href="../index.php">Kembali ke tabel</a>
+</div>
+<script src="../validasi.js"></script>
+</body>
+</html>
