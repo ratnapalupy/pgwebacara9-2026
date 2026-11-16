@@ -15,7 +15,6 @@ $latitude     = $_POST['latitude'];
 
 if ($nama_pemilik === '') $nama_pemilik = '-';
 
-// Validasi sisi server (jaga-jaga jika JavaScript dimatikan)
 if ($kategori === '' || $keterangan === '' || $kecamatan === '' || $desa === '' || $dusun === ''
     || !is_numeric($point_x) || !is_numeric($point_y)
     || !is_numeric($longitude) || $longitude < -180 || $longitude > 180
@@ -29,7 +28,7 @@ $stmt = $conn->prepare(
      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
 );
 $stmt->bind_param("sssssssdddd", $kategori, $keterangan, $nama_pemilik, $kecamatan,
-                  $desa, $dusun, $dokumentasi, $point_x, $point_y, $longitude, $latitude);
+                $desa, $dusun, $dokumentasi, $point_x, $point_y, $longitude, $latitude);
 
 if ($stmt->execute()) {
     $stmt->close();

@@ -1,4 +1,3 @@
-// Dipakai oleh form input dan form edit
 function validateForm(event) {
   const wajib = [
     ["kategori", "Kategori"], ["keterangan", "Keterangan"],
@@ -34,7 +33,7 @@ function validateForm(event) {
 
   document.getElementById("informasi").innerHTML = text;
   if (text !== "") {
-    event.preventDefault();   // batalkan pengiriman form
+    event.preventDefault();   
     return false;
   }
   return true;

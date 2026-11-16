@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="utf-8">
+
+<title>Latihan Web GIS - Warisan Budaya Takbenda</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+
+html, body, #map {
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+}
+</style>
+</head>
+<body>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<div id="map"></div>
+<script>
+
+var map = L.map('map').setView([-7.7, 110.4], 11); // lat, long, zoom
+
+
+var basemap1 = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+  attribution: 'Tiles &copy; Esri'
+});
+var basemap2 = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+  maxZoom: 20,
+  subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+  attribution: 'Map data &copy; Google'
+});
+basemap1.addTo(map);
+
+var marker1 = L.marker([-7.621, 110.465]);
+marker1.addTo(map);
+marker1.bindPopup("<b>Joglo</b><br>Rumah Tradisional Jawa (DIY)<br>Pemilik: Pak Jamadi<br>Gading, Glagaharjo, Cangkringan");
+
+var marker2 = L.marker([-7.741, 110.447]);
+marker2.addTo(map);
+marker2.bindPopup("<b>Joglo</b><br>Rumah Tradisional Jawa (DIY)<br>Pemilik: -<br>Bromonilan, Purwomartani, Kalasan");
+
+var marker3 = L.marker([-7.822, 110.426]);
+marker3.addTo(map);
+marker3.bindPopup("<b>Pengarajin Wayang</b><br>Pengrajin Wayang (Semua Jenis)<br>Pemilik: Sanggar Seni Sungging<br>Sekar Suli, Sendangtirto, Berbah");
+
+var marker4 = L.marker([-7.765, 110.309]);
+marker4.addTo(map);
+marker4.bindPopup("<b>Joglo</b><br>Rumah Tradisional Jawa (DIY)<br>Pemilik: -<br>Wirokraman, Sidokarto, Godean");
+
+var marker5 = L.marker([-7.803, 110.496]);
+marker5.addTo(map);
+marker5.bindPopup("<b>Gerobak Sapi</b><br>Gerobak Sapi<br>Pemilik: -<br>Ngeburan, Sumberharjo, Prambanan");
+
+var marker6 = L.marker([-7.787, 110.289]);
+marker6.addTo(map);
+marker6.bindPopup("<b>Tukang Pijat Semua Kalangan</b><br>Tukang Pijat Tradisional<br>Pemilik: Pak Zaenal Abidin<br>Tumut, Sumbersari, Moyudan");
+
+var marker7 = L.marker([-7.748, 110.47]);
+marker7.addTo(map);
+marker7.bindPopup("<b>Pijat Bayi</b><br>Dukun Bayi/Anak<br>Pemilik: Mbah Yah<br>Jetis, Tirtomartani, Kalasan");
+
+var semuaTitik = L.featureGroup([marker1, marker2, marker3, marker4, marker5, marker6, marker7]);
+map.fitBounds(semuaTitik.getBounds().pad(0.2));
+
+var baseMaps = {
+  "Esri Imagery": basemap1,
+  "Google Street": basemap2
+};
+var overlayMaps = {
+  "Joglo - Cangkringan": marker1,
+  "Joglo - Kalasan": marker2,
+  "Pengrajin Wayang - Berbah": marker3,
+  "Joglo - Godean": marker4,
+  "Gerobak Sapi - Prambanan": marker5,
+  "Tukang Pijat - Moyudan": marker6,
+  "Pijat Bayi - Kalasan": marker7
+};
+L.control.layers(baseMaps, overlayMaps, {collapsed: false}).addTo(map);
+
+L.control.scale({
+  maxWidth: 150,
+  position: 'bottomright'
+}).addTo(map);
+</script>
+</body>
+</html>

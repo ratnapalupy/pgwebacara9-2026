@@ -5,7 +5,6 @@ body {
   padding: 30px 15px;
 }
 
-/* ===== Halaman tabel ===== */
 .judul { text-align: center; color: #9d174d; margin-top: 0; }
 .tombol {
   display: inline-block;
@@ -38,7 +37,6 @@ table.data tr:nth-child(even) td { background: #fdf2f8; }
 .aksi-edit { color: #db2777; font-weight: bold; }
 .aksi-hapus { color: #b91c1c; font-weight: bold; }
 
-/* ===== Halaman form ===== */
 .kotak {
   max-width: 420px;
   margin: 0 auto;
